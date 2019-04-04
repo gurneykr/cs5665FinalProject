@@ -197,8 +197,14 @@ high_school_and_high = high[high.parental_level_of_education == "high school"]
 p_high_school_and_high = (len(high_school_and_high)/1000)/ p_high_school
 print("p_high_school_and_high: ", p_high_school_and_high )
 
+some_college_and_high = high[high.parental_level_of_education == "some college"]
+p_some_college_and_high = (len(some_college_and_high)/1000) / p_some_college
+print("p_some_college_and_high: ", p_some_college_and_high )
 
-
+female_and_high = high[high.gender == "female"]
+#print(len(female_and_high))
+p_female_and_high = (len(female_and_high)/1000)/ p_female
+print("p_female_and_high: ", p_female_and_high )
 
 
 
