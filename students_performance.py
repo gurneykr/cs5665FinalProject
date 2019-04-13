@@ -189,22 +189,64 @@ bachelor_and_high = high[high.parental_level_of_education == "bachelor's degree"
 master_and_high = high[high.parental_level_of_education == "master's degree"]
 p_bachelor_and_master_high = (len(bachelor_and_high) + len(master_and_high))/1000
 
-p_high_bachelor_master = p_bachelor_and_master_high / p_bacheolors_higher
-print("p_high_bachelor_master: ", p_high_bachelor_master)
+p_high_given_bachelor_master = p_bachelor_and_master_high / p_bacheolors_higher
+print()
+print("p_high_given_bachelor_master : ", p_high_given_bachelor_master)
 
 high_school_and_high = high[high.parental_level_of_education == "high school"]
 #print(high_school_and_high )
-p_high_school_and_high = (len(high_school_and_high)/1000)/ p_high_school
-print("p_high_school_and_high: ", p_high_school_and_high )
+p_high_given_high_school = (len(high_school_and_high)/1000)/ p_high_school
+print("p_high_given_high_school: ", p_high_given_high_school)
 
+
+###############################################################
 some_college_and_high = high[high.parental_level_of_education == "some college"]
-p_some_college_and_high = (len(some_college_and_high)/1000) / p_some_college
-print("p_some_college_and_high: ", p_some_college_and_high )
+p_high_given_some_college = (len(some_college_and_high)/1000) / p_some_college
+print("p_high_given_some_college: ", p_high_given_some_college )
 
+#high_average = df[df.average_score >= 80]
 female_and_high = high[high.gender == "female"]
-#print(len(female_and_high))
-p_female_and_high = (len(female_and_high)/1000)/ p_female
-print("p_female_and_high: ", p_female_and_high )
+p_high_given_female = (len(female_and_high)/1000)/ p_female
+
+print()
+print("p_high_given_female : ", p_high_given_female)
+
+male_and_high = high[high.gender == "male"]
+#print(len(male_and_high))
+p_high_given_male = (len(male_and_high)/1000)/ p_male
+print("p_high_given_male: ", p_high_given_male)
+
+p_female_given_high = (len(female_and_high)/1000)/ p_high_average
+print("p_female_given_high: ", p_female_given_high )
+
+p_male_given_high = (len(male_and_high)/1000)/ p_high_average
+print("p_male_given_high: ", p_male_given_high )
+
+###########################################################
+reading = df[df.reading_score >= 80]
+reading_and_writing = reading[reading.writing_score >= 80]
+
+math_and_reading_and_writing = reading_and_writing[reading_and_writing.math_score >= 80] 
+
+p_math_given_reading_and_writing = (len(math_and_reading_and_writing) / 1000)/(len(reading_and_writing)/1000)
+
+print()
+print("p_math_given_reading_and_writing: ", p_math_given_reading_and_writing)
+
+
+math = df[df.math_score >= 80]
+math_and_writing = math[math.writing_score >= 80]
+p_reading_given_math_and_writing = (len(math_and_reading_and_writing)/1000)/ (len(math_and_writing)/1000)
+
+print("p_reading_given_math_and_writing: ", p_reading_given_math_and_writing)
+
+
+math_and_reading = math[math.reading_score >= 80]
+p_writing_given_math_and_reading = (len(math_and_reading_and_writing)/1000)/ (len(math_and_reading)/1000)
+
+print("p_writing_given_math_and_reading: ", p_writing_given_math_and_reading)
+
+
 
 
 
